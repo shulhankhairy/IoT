@@ -26,6 +26,6 @@
 
 | Jenis | Jumlah | Bobot |
 | ---   | ---    | ---   |
-| Tugas | 4      | 30%   |
+| Tugas | *      | 30%   |
 | UTS   | 1      | 35%   |
 | UAS   | 1      | 35%   |
