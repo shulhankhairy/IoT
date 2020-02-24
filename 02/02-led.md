@@ -151,14 +151,15 @@ Hardware Preparation:
 
 ### Project 4 SOS LED
 Pada project ketiga ini akan dilakukan percobaan untuk menyalakan lebih dari satu LED secara teratur sesuai sandi morse SOS, siapkan beberapa komponen yang dibutuhkan dan rangkailah komponen tersebut pada project board.
+
 Hardware Preparation:
-•	NodeMCU x 1
-•	LED x 2
-•	220 ohm resistor x 1
-•	Kable Dupont (male to male)
-•	Micro USB cable x 1
-•	PC/laptop x 1
-•	Software Arduino IDE
++ NodeMCU x 1
++ LED x 2
++ 220 ohm resistor x 1
++ Kable Dupont (male to male)
++ Micro USB cable x 1
++ PC/laptop x 1
++ Software Arduino IDE
 
 1. Rangkailah komponen-komponen yang diperlukan seperti pada gambar berikut
 
