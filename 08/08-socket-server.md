@@ -12,3 +12,4 @@
 
 ## Tugas
 Buatlah program socket server yang dapat menerima pengiriman data dari client, program tersebut juga harus bisa membedakan misalkan data sensor DHT, sensor ultrasonik, atau sensor-sensor yang lain.
+Selain itu server juga harus mengirimkan status ke client.
