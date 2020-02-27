@@ -9,3 +9,6 @@
 - Menjelaskan cara kerja socket server yang bertugas sebagai “listening” dari semua socket client yang terkoneksi
 - Menjelaskan konsep socket Asynchrounus dengan C#
 - Membuat program Socket Server dengan GUI C#, Java, Phyton, dan lain-lain untuk menerima data sensor MCU, kemudian menampilkannya secara real-time di sisi socket server
+
+## Tugas
+Buatlah program socket server yang dapat menerima pengiriman data dari client, program tersebut juga harus bisa membedakan misalkan data sensor DHT, sensor ultrasonik, atau sensor-sensor yang lain.
