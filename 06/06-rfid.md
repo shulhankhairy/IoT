@@ -27,7 +27,6 @@
 | RST     | D3 \(GPIO0\)  |
 | 3V3     | 3V3           |
 
-
 ```cpp
 #include <SPI.h>
 #include <MFRC522.h>
@@ -76,4 +75,70 @@ void dump_byte_array(byte *buffer, byte bufferSize)
 }
 ```
 
+![](images/08-led-03.png)
+
+Pada dasarnya LED RGB terdiri dari 2 jenis yaitu common cathode dan common anode.
+1. `Common cathode (-)`, kaki yang paling panjang adalah GND
+2. `Common anode (+)`, kaki yang paling panjang adalah VCC
+
+Dengan perbedaan jenis LED yang digunakan, cara penggunaannya juga berbeda. Perbedaannya tersebut adalah ketika akan menghidupkan jenis LED annode dilakukan `HIGH`, sedangkan LED cathode dilakukan `LOW`.
+
+![](images/esp8266-led-rgb.png)
+
+```cpp
+#define RED D5
+#define GREEN D6
+#define BLUE D7
+
+void setup()
+{
+  pinMode(RED, OUTPUT);
+  pinMode(GREEN, OUTPUT);
+  pinMode(BLUE, OUTPUT);
+
+  digitalWrite(RED, HIGH);
+  digitalWrite(GREEN, HIGH);
+  digitalWrite(GREEN, HIGH);
+}
+
+void loop()
+{
+  digitalWrite(RED, LOW);
+  digitalWrite(GREEN, HIGH);
+  digitalWrite(BLUE, HIGH);
+  delay(500);
+
+  digitalWrite(RED, HIGH);
+  digitalWrite(GREEN, LOW);
+  digitalWrite(BLUE, HIGH);
+  delay(500);
+
+  digitalWrite(RED, HIGH);
+  digitalWrite(GREEN, HIGH);
+  digitalWrite(BLUE, LOW);
+  delay(500);
+}
+```
+
+Silakan diupload program di atas ke esp8266 Anda, seharusnya jika semuanya normal maka akan menyala secara bergantian menyala merah, hijau, dan biru.
+
+```
+  pinMode(RED, OUTPUT);
+  pinMode(GREEN, OUTPUT);
+  pinMode(BLUE, OUTPUT);
+```
+Potongan kode di atas digunakan untuk mengkonfigurasi atau menentukan pin-pin yang digunakan sebagai pin out sesuai dengan pin yang telah dideklarasikan di atas yaitu `RED, GREEN, dan BLUE.`
+
+```
+  digitalWrite(RED, HIGH);
+  digitalWrite(GREEN, HIGH);
+  digitalWrite(GREEN, HIGH);
+```
+Baris perintah di atas akan melakukan inisialisasi LED untuk diredupkan, karena LED yang digunakan menggunakan common anode sehingga menggunakan `HIGH`.
+
 ## Tugas
+Buatlah sebuah aplikasi yang sederahana menggunakan RFID, LED RGB, dan LCD. Skenarionya adalah sebagai berikut
+1. Daftarkan beberapa UID kartu terlebih dahulu di program yang Anda buat.
+2. Ketika RFID diletakan atau ditempelkan pada reader dengan kartu yang terdaftar lampu hijau akan menyala dan pada LCD akan tertampil `Silakan Masuk`.
+3. Ketika RFID diletakan atau ditempelkan pada reader dengan kartu yang tidak terdaftar lampu merah akan menyala dan pada LCD akan tertampil `Dilarang Masuk`.
+4. Ketika tidak ada kartu yang ditempelkan lampu biru akan berkedip-kedip.
