@@ -36,7 +36,7 @@ Contoh source code untuk membaca suhu dan kelembaban udara.
 ```c++
 #include <dht.h>
 
-int sensorSuhu 13 //sesuaikan dengan GPIO pin yang anda gunakan
+int sensorSuhu = 13; //sesuaikan dengan GPIO pin yang anda gunakan
 dht DHT;
  
 void setup() {
@@ -54,9 +54,10 @@ void loop() {
   Serial.print(DHT.temperature); 
   Serial.println(" C ");
   delay(3000);
+}
 ```
 
-> Catatan: Pastikan anda telah mengimport library sensor DHT11 pada ArduinoIDE
+> Catatan: Pastikan anda telah mengimport [library](https://drive.google.com/open?id=1ARdy8b91dfwb7-I9G2_pvRFyKK1LW4w9) sensor DHT11 pada ArduinoIDE
 
 Setelah source code diupload, buka serial monitor pada ArduinoIDE untuk melihat hasil pembacaan data suhu dan kelembaban udara.
 
