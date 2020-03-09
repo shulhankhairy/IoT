@@ -8,6 +8,7 @@
 sensor, aktuator dan LCD, Dasar koding MCU dan Writing](01/01.installasi-dan-konfigurasi.md)
 * [Programming Implementation On NodeMCU LED](02/02-led.md)
 * [Implementasi program sensor suhu dan kelembabab DHT11](03/05-Sensor-suhu-dan-kelembaban.md)
+* [Sensor Cahaya](04/06-sensor-cahaya.md)
 * [Nilai]()
     + [TI-3B](nilai/01-ti-3b.md)
     + [TI-3C](nilai/02-ti-3c.md)
