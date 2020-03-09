@@ -8,51 +8,40 @@ Politeknik Negeri Malang
 
 ## Sensor Cahaya
 
-Sensor cahaya adalah sebuah sensor yang digunakan untuk mendeteksi cahaya di sekitar lingkungan kita. Sensor cahaya yang akan kita gunakan menggunakan potensio, fungsi potensio tersebut adalah untuk mengurangi atau menambahkan tingkat kepekaan sensor yang akan kita gunakan. Sensor cahaya sangat berguna kita akan membuat aplikasi pendeteksi tingkat cahaya, misalkan ketika tingkat cahaya tertentu sebuah lampu akan dinyalakan.
+Sensor cahaya digunakan untuk menangkap intensitas cahaya disekitar. Sensor yang digunakan adalah sensor LDR (Light Dependent Resistor). 
 
-## Rangkaian Sensor Cahaya
+Pin pada sensor cahaya terdapat 3 buah, VCC, ground, dan data. Data yang ditangkap pada sensor cahaya berupa data analog, sehingga kita harus menghubungkan pin data pada pin analog NodeMCU. Struktur pin pada sensor cahaya LDR seperti berikut.
+![sensor cahaya](sensor-ldr.jpg)
+
+## Praktikum 1 - Membaca data intensitas cahaya
+
+Pada praktikum pertama, anda akan melakukan percobaan untuk menangkap data intensitas cahaya.
+
 Berikut ini adalah rangkaian yang dapat digunakan
 ![](images/esp8266-ldr.png)
 
-Dari gambar di atas dapat dilihat pengkabelan seperti pada tabel di bawah ini
-
-| ESP8266 Amica | Sensor LDR                  |
-|---------------|------------------------------------|
-| VCC           | VCC                                |
-| GND           | GND                                |
-| A0            | A0                               |
-
-
-## Membaca sensor cahaya
-
-Susunan rangkaian sederhana pada praktikum ini seperti gambar sebelumnya.
-
-Contoh source code
+Contoh source code untuk membaca data intensitas cahaya.
 
 ```c++
-void setup()
-{
-  Serial.begin(115200);
-  Serial.println("Contoh penerapan sensor cahaya")
+#define sensorLDR A0
+int nilaiSensor;
+
+void setup() {
+  Serial.begin(9600);
+  delay(3000);
 }
 
-void loop()
-{
-  unsigned int AnalogValue;
-  AnalogValue = analogRead(PIN_A0);
-  Serial.println(AnalogValue);
-  delayMicroseconds(10);
+void loop() {
+  nilaiSensor = analogRead(sensorLDR);
+  Serial.print(“Nilai Sensor : “);
+  Serial.println(nilaiSensor);
 }
 ```
 
-Setelah source code diupload, buka serial monitor pada ArduinoIDE untuk melihat hasil sensor cahaya.
+Setelah source code diupload, buka serial monitor pada ArduinoIDE untuk melihat hasil pembacaan data intensitas cahaya di sekitar sensor.
 
 ## Tugas
-1. Buatlah sebuah rangkaian untuk sensor cahaya dan LED menggunakan fritzing, kemudian buatlah program dengan skenario sebagai berikut
-    + LED merah akan menyala ketika cahaya dalam kategori redup pada durasi tertentu
-    + LED hijau akan menyala ketika dalam kategori terang pada durasi tertentu
-    > tidak harus menggunakan LED hijau dan merah jika tidak memiliki LED hijau dan merah
-
+1. Buatlah rangkaian menggunakan fritzing tentang simulasi lampu yang otomatis menyala dengan lampu LED sebagai gambaran dari sebuah rumah. 1 LED mewakili 1 ruangan dalam rumah. Sehingga ketika waktu sore datang atau ketika mendung dan hujan, lampu otomatis nyala. Begitu pula ketika pagi datang, lampu otomatis mati.
 2. Buatlah sebuah rangkaian untuk LED, sensor cahaya dan sensor suhu menggunakan fritzing, kemudian buatlah program dengan skenario sebagai berikut
     + Ketika cahaya redup dan suhu kategori dingin maka LED build akan berkedip
     + Ketika cahaya terang dan suhu tergolong tinggi, LED merah akan menyala.
