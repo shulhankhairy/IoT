@@ -14,9 +14,16 @@ Sensor cahaya adalah sebuah sensor yang digunakan untuk mendeteksi cahaya di sek
 Berikut ini adalah rangkaian yang dapat digunakan
 ![](images/esp8266-ldr.png)
 
+Dari gambar di atas dapat dilihat pengkabelan seperti pada tabel di bawah ini
+
+| ESP8266 Amica | Sensor LDR                  |
+|---------------|------------------------------------|
+| VCC           | VCC                                |
+| GND           | GND                                |
+| A0            | A0                               |
 
 
-## Praktikum 1 - Membaca sensor cahaya
+## Membaca sensor cahaya
 
 Susunan rangkaian sederhana pada praktikum ini seperti gambar sebelumnya.
 
@@ -45,3 +52,8 @@ Setelah source code diupload, buka serial monitor pada ArduinoIDE untuk melihat 
     + LED merah akan menyala ketika cahaya dalam kategori redup pada durasi tertentu
     + LED hijau akan menyala ketika dalam kategori terang pada durasi tertentu
     > tidak harus menggunakan LED hijau dan merah jika tidak memiliki LED hijau dan merah
+
+2. Buatlah sebuah rangkaian untuk LED, sensor cahaya dan sensor suhu menggunakan fritzing, kemudian buatlah program dengan skenario sebagai berikut
+    + Ketika cahaya redup dan suhu kategori dingin maka LED build akan berkedip
+    + Ketika cahaya terang dan suhu tergolong tinggi, LED merah akan menyala.
+    > LED build in adalah LED bawaan esp8266, biasanya berwarna biru atau merah
