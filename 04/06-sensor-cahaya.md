@@ -17,6 +17,9 @@ Pin pada sensor cahaya terdapat 3 buah, VCC, ground, dan data. Data yang ditangk
 
 Pada praktikum pertama, anda akan melakukan percobaan untuk menangkap data intensitas cahaya.
 
+Berikut ini adalah rangkaian yang dapat digunakan
+![](images/esp8266-ldr.png)
+
 Contoh source code untuk membaca data intensitas cahaya.
 
 ```c++
@@ -38,5 +41,8 @@ void loop() {
 Setelah source code diupload, buka serial monitor pada ArduinoIDE untuk melihat hasil pembacaan data intensitas cahaya di sekitar sensor.
 
 ## Tugas
-1. Buatlah simulasi lampu yang otomatis menyala (menggunakan lampu LED 1 buah) ketika intensitas cahaya mulai redup dan sebaliknya, lampu mati otomatis ketika intensitas cahaya mulai terang.
-2. Dari soal tugas nomor 1, tambahkan beberapa lampu LED sebagai simulasi dari sebuah rumah. 1 LED mewakili 1 ruangan dalam rumah. Sehingga ketika waktu sore datang atau ketika mendung dan hujan, lampu otomatis nyala. Begitu pula ketika pagi datang, lampu otomatis mati.
+1. Buatlah rangkaian menggunakan fritzing tentang simulasi lampu yang otomatis menyala dengan lampu LED sebagai gambaran dari sebuah rumah. 1 LED mewakili 1 ruangan dalam rumah. Sehingga ketika waktu sore datang atau ketika mendung dan hujan, lampu otomatis nyala. Begitu pula ketika pagi datang, lampu otomatis mati.
+2. Buatlah sebuah rangkaian untuk LED, sensor cahaya dan sensor suhu menggunakan fritzing, kemudian buatlah program dengan skenario sebagai berikut
+    + Ketika cahaya redup dan suhu kategori dingin maka LED build akan berkedip
+    + Ketika cahaya terang dan suhu tergolong tinggi, LED merah akan menyala.
+    > LED build in adalah LED bawaan esp8266, biasanya berwarna biru atau merah
