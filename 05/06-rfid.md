@@ -188,7 +188,6 @@ Biasanya untuk memudahkan dalam wiring kita membutuhkan modul i2c, fungsi modul 
 
 Dari gambar di atas, diperjelas pada tabel di bawah ini
 
-Untuk lebih jelaskan dapat dilihat pada tabel di bawah ini
 | ESP8266 Amica | LCD I2C                            |
 |---------------|------------------------------------|
 | Vin           | GND                                |
