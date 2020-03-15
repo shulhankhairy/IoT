@@ -113,6 +113,7 @@ Dari program di atas seharusnya ketika dijalankan akan menampilkan serial dari s
 
 ## Praktikum 2
 Praktikum yang kedua mencoba membuat LED RGB yang nantinya akan dikombinasikan dengan praktikum yang sebelumnya.
+> Jika sebelumnya telah menggunakan LED RGB, bisa diabaikan dan melanjutkan ke praktikum 3
 
 ![](images/08-led-03.png)
 
@@ -195,6 +196,53 @@ Dari gambar di atas, diperjelas pada tabel di bawah ini
 | D1            | SCL                                |
 | D2            | SDA                                |
 
+### Mencari alamat I2C
+Untuk dapat menggunakan LCD yang menggunakan I2C, sebelumnya harus mencari terlebih dahulu lokasi dari I2C tersebut. I2C defaultnya terdapat di `0x27`, akan tetapi hal tersebut bisa berbeda bergantung dari manufactur atau vendor. Buatlah kode di bawah ini untuk mendapatkan alamat I2C pada LCD.
+
+```cpp
+#include <Wire.h>
+ 
+void setup() {
+  Wire.begin();
+  Serial.begin(115200);
+  Serial.println("\nI2C Scanner");
+}
+ 
+void loop() {
+  byte error, address;
+  int nDevices;
+  Serial.println("Scanning...");
+  nDevices = 0;
+  for(address = 1; address < 127; address++ ) {
+    Wire.beginTransmission(address);
+    error = Wire.endTransmission();
+    if (error == 0) {
+      Serial.print("I2C ditemukan pada 0x");
+      if (address<16) {
+        Serial.print("0");
+      }
+      Serial.println(address,HEX);
+      nDevices++;
+    }
+    else if (error==4) {
+      Serial.print("Unknow error at address 0x");
+      if (address<16) {
+        Serial.print("0");
+      }
+      Serial.println(address,HEX);
+    }    
+  }
+  if (nDevices == 0) {
+    Serial.println("No I2C devices found\n");
+  }
+  else {
+    Serial.println("done\n");
+  }
+  delay(5000);          
+}
+```
+Upload kode di atas, kemudian amati hasilnya pada serial monitor.
+
 Buatlah kode di bawah ini untuk mencoba menampilkan data pada sebuah LCD
 ```cpp
 #include <LiquidCrystal_I2C.h>
@@ -236,7 +284,7 @@ void scrollText(int row, String message, int delayTime, int lcdColumns)
 Pada kode di atas terdapat baris perintah `LiquidCrystal_I2C lcd(0x27, 16, 2);`, berfungsi untuk menginisialisasi lcd dengan alamat i2c terdapat di `0x27` menggunakan LCD 16x2.
 
 ## Tugas
-Buatlah sebuah aplikasi yang sederahana menggunakan RFID, LED RGB, dan LCD. Skenarionya adalah sebagai berikut
+Buatlah sebuah aplikasi yang sederhana menggunakan RFID, LED RGB, dan LCD. Skenarionya adalah sebagai berikut
 1. Buatlah ketiga komponen tersebut di dalam satu rangkaian menggunakan fritzing.
 2. Daftarkan beberapa UID kartu terlebih dahulu di program yang Anda buat.
 3. Ketika RFID diletakan atau ditempelkan pada reader dengan kartu yang terdaftar lampu hijau akan menyala dan pada LCD akan tertampil `Silakan Masuk`.
