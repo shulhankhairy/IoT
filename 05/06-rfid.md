@@ -243,6 +243,8 @@ void loop() {
 ```
 Upload kode di atas, kemudian amati hasilnya pada serial monitor.
 
+### Menampilkan data pada LCD
+
 Buatlah kode di bawah ini untuk mencoba menampilkan data pada sebuah LCD
 ```cpp
 #include <LiquidCrystal_I2C.h>
