@@ -9,6 +9,7 @@
 * [03. Implementasi sensor suhu dan kelembaban](03/05-Sensor-suhu-dan-kelembaban.md)
 * [04. Sensor Cahaya](04/06-sensor-cahaya.md)
 * [05. RFID](05/06-rfid.md)
+* [06. Sensor Ultrasonic](06/07-ultrasonic.md)
 * [Nilai]()
     + [TI-3B](nilai/01-ti-3b.md)
     + [TI-3C](nilai/02-ti-3c.md)
